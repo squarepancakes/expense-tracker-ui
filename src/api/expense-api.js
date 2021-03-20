@@ -1,4 +1,4 @@
-import ApiConfig from "./api.config";
+import ApiConfig from "./api-config.api";
 
 export default {
 	getAllExpenses() {
