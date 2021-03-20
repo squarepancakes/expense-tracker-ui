@@ -1,18 +1,26 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <ExpenseDashboard :expenseList="expenseList" />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import expenseApi from "@/api/expense-api";
+import ExpenseDashboard from "@/components/expense-dashboard/ExpenseDashboard.vue";
 
 export default {
   name: "Home",
   components: {
-    HelloWorld,
+    ExpenseDashboard,
+  },
+  data() {
+    return {
+      expenseList: [],
+    };
+  },
+  async mounted() {
+    this.expenseList = await expenseApi.getAllExpenses();
   },
 };
 </script>
