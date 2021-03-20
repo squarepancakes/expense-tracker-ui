@@ -22,12 +22,16 @@ export default {
       expenseList: [],
     };
   },
-  async mounted() {
-    this.expenseList = await expenseApi.getAllExpenses();
+  mounted() {
+    this.init();
   },
   methods: {
+    async init() {
+      this.expenseList = await expenseApi.getAllExpenses();
+    },
     async handleAddNewItem(newItem) {
       await expenseApi.addNewExpense(newItem);
+      this.init();
     },
   },
 };

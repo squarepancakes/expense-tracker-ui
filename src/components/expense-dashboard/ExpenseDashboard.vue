@@ -37,6 +37,11 @@ export default {
   methods: {
     handleAddNewItem() {
       this.$emit("add-new-item", this.newItem);
+      this.newItem = {
+        item: "",
+        price: null,
+        category: ["food"],
+      };
     },
   },
 };
