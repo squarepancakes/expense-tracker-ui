@@ -1,22 +1,28 @@
 <template>
-  <table class="table__wrapper">
-    <tr>
-      <th>Date</th>
-      <th>Item Name</th>
-      <th>Price</th>
-    </tr>
-    <tr v-for="expenseItem in expenseList" :key="expenseItem._id">
-      <td>
-        {{ dateFormatter(expenseItem.date) }}
-      </td>
-      <td>
-        {{ expenseItem.item }}
-      </td>
-      <td>
-        {{ expenseItem.price }}
-      </td>
-    </tr>
-  </table>
+  <div>
+    <table class="table__wrapper">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Item Name</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="expenseItem in expenseList" :key="expenseItem._id">
+          <td class="table__item">
+            {{ dateFormatter(expenseItem.date) }}
+          </td>
+          <td class="table__item">
+            {{ expenseItem.item }}
+          </td>
+          <td class="table__item">
+            {{ expenseItem.price }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </template>
 
 <script>
@@ -37,6 +43,6 @@ export default {
 
 <style scoped>
 .table__wrapper {
-  border: 2px solid blueviolet;
+  margin: auto;
 }
 </style>
