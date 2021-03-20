@@ -1,15 +1,13 @@
 <template>
   <div>
     <h1>hihi</h1>
-    <ul>
-      <li v-for="expenseItem in expenseList" :key="expenseItem._id">
-        {{ expenseItem }}
-      </li>
-    </ul>
+    <ExpenseList :expenseList="expenseList" />
   </div>
 </template>
 
 <script>
+import ExpenseList from "@/components/expense-dashboard/ExpenseList.vue";
+
 export default {
   props: {
     expenseList: {
@@ -17,7 +15,14 @@ export default {
       default: () => [],
     },
   },
+  components: {
+    ExpenseList,
+  },
 };
 </script>
 
-<style></style>
+<style scoped>
+/* .table__wrapper {
+  border: 2px solid blueviolet;
+} */
+</style>
