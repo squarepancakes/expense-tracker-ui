@@ -7,4 +7,11 @@ export default {
 			.get(url)
 			.then((res) => res.data);
 	},
+
+	addNewExpense(item) {
+		const url = process.env.VUE_APP_SUBPATH;
+		return ApiConfig()
+			.post(url, item)
+			.then((res) => res.data);
+	},
 };

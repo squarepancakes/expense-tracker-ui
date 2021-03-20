@@ -1,7 +1,10 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
-    <ExpenseDashboard :expenseList="expenseList" />
+    <ExpenseDashboard
+      :expenseList="expenseList"
+      @add-new-item="handleAddNewItem"
+    />
   </div>
 </template>
 
@@ -21,6 +24,11 @@ export default {
   },
   async mounted() {
     this.expenseList = await expenseApi.getAllExpenses();
+  },
+  methods: {
+    async handleAddNewItem(newItem) {
+      await expenseApi.addNewExpense(newItem);
+    },
   },
 };
 </script>
